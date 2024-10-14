@@ -1,4 +1,4 @@
-import { Image,View, Text,SafeAreaView, TouchableOpacity  } from 'react-native'
+import { Image,View, Text,SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 // import { StatusBar } from 'expo-status-bar';

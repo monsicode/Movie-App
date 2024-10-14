@@ -1,14 +1,31 @@
 import { View, Text, StatusBar,Image, TouchableOpacity, ScrollView } from 'react-native'
-import React from 'react'
+import React, {useEffect, useState} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useNavigation } from '@react-navigation/native'
 
-import TrandingMovies from '../components/TrendingMovies';
 import TrendingMovies from '../components/TrendingMovies';
+import { fetchTrendingMovies } from '../../api/moviedb';
 
 export default function HomeScreen() {
 
+  const [trending, setTrending] = useState([1,2,3])
   const navigation = useNavigation();
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect( ()=>{
+    getTrendingMovies();
+  },[]
+)
+
+const getTrendingMovies = async()=>{
+ const data = await fetchTrendingMovies();
+  // console.log('trending',data);
+  if(data && data.results) setTrending(data.results);
+  setLoading(false);
+
+
+}
 
   return (
     <View className="flex-1 bg-neutral-800">
@@ -35,14 +52,14 @@ export default function HomeScreen() {
     <ScrollView
     showsVerticalScrollIndicator={false}
     contentContainerStyle={{paddingBottom: 10}}
-    >
+    > 
+ 
     
-    <TrendingMovies />
+    {trending.lendth>0 && <TrendingMovies data={trending}/>}
    
     </ScrollView>
     
-    
-    
+
     </View>
   )
 }
