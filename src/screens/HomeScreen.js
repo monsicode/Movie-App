@@ -55,7 +55,8 @@ const getTrendingMovies = async()=>{
     > 
  
     
-    {trending.lendth>0 && <TrendingMovies data={trending}/>}
+    {/* {trending.lendth>0 && <TrendingMovies data={trending}/>} */}
+    <TrendingMovies data={trending}/>
    
     </ScrollView>
     

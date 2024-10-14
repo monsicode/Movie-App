@@ -7,6 +7,12 @@ const trendingMoviesEndpoint = `https://api.themoviedb.org/3/trending/movie/day?
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?language=en-US&page=1'?api_key=${apiKeys}`
 const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?language=en-US&page=1'?api_key=${apiKeys}`
 
+//will return the img of width 500
+export const image500 = path=>path ? `https://image.tmdb.org/t/p/w500${path}` : null
+export const image342 = path=>path ? `https://image.tmdb.org/t/p/w342${path}` : null
+export const image185 = path=>path ? `https://image.tmdb.org/t/p/w185${path}` : null
+
+
 const apiCall = async (endpoint, params)=>{
     // console.log('breackPoint');
     const options = {
