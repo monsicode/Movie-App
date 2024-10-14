@@ -4,10 +4,8 @@ import { Link, Tabs } from 'expo-router';
 import React, {useState} from 'react';
 
 import AppNavigation from './src/navigation';
-import CatScreen from './src/tests/catHomeScreen';
-
 
 export default function App() {
-  // return <CatScreen />
+  return <AppNavigation />
 }
 
