@@ -14,7 +14,7 @@ export default function TrendingMovies({data}) {
 
   return (
     <View>
-      <Text className="text-white mt-5 text-xl mb-5 mx-5">TrendingMovies</Text>
+      <Text className="text-white mt-5 text-xl mb-5 mx-4">TrendingMovies</Text>
       <FlatList
         horizontal={true}
         style={{ paddingVertical: 5}}

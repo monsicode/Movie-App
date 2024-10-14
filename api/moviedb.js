@@ -3,9 +3,9 @@ import {apiKeys} from '../constant/api'
 
 
 const apiBaseUrl = 'https://api.themoviedb.org/3';
-const trendingMoviesEndpoint = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${apiKeys}`;
-const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?language=en-US&page=1'?api_key=${apiKeys}`
-const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?language=en-US&page=1'?api_key=${apiKeys}`
+const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?language=en-US&api_key=${apiKeys}`;
+const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?language=en-US&page=1&api_key=${apiKeys}`
+const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?language=en-US&page=1&api_key=${apiKeys}`
 
 //will return the img of width 500
 export const image500 = path=>path ? `https://image.tmdb.org/t/p/w500${path}` : null
