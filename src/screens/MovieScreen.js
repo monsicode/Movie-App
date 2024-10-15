@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import Cast from '../components/Cast';
 import { fetchMovieCredits, fetchMovieDetails, image500 } from '../../api/moviedb';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
@@ -20,6 +21,8 @@ export default function MovieScreen() {
   const [isLiked, setLike] = useState(false);
   const [cast, setCast] = useState({});
   const [movie, setMovie] = useState({});
+
+  const [isFavourite, toggleFavourite] = useState(false);
  
 
   const [loading, setLoading] = useState(false);
@@ -43,6 +46,70 @@ export default function MovieScreen() {
     if(data && data.cast) setCast(data.cast);
   }
 
+// saved movies
+const toggleFavouriteAndSave = async () =>{
+  try{
+    // check if saved
+    const savedMovies = await AsyncStorage.getItem("savedMovies");
+    let savedMoviesArray = savedMovies ? JSON.parse(savedMovies) : [];
+    console.log("Check if the movie is saved")
+
+    const isMovieSaved = savedMoviesArray.some(
+      (savedMovie) => savedMovie.id === item.id
+    );
+
+    console.log("Check")
+
+    if( !isMovieSaved){
+       //if not saved, add it
+       savedMoviesArray.push(movie)
+       await AsyncStorage.setItem("savedMovies", JSON.stringify(savedMoviesArray));
+       toggleFavourite(true);
+       console.log("Movie is saved to the list")
+    }
+    else{
+      //if saved, remove
+      const updatedSaveMoviesArray = savedMoviesArray.filter(
+        (savedMovie) => savedMovie.id !== item.id
+      );
+      await AsyncStorage.setItem(
+        "savedMovies",JSON.stringify(updatedSaveMoviesArray)
+      );
+      toggleFavourite(false)
+      console.log("movie is removed")
+    }
+
+
+  }catch(error){
+    console.log("Error Saving movie", error);
+  }
+}
+
+
+useEffect(()=>{
+  const loadSavedMovies = async () =>{
+    try{
+      const savedMovies = await AsyncStorage.getItem("savedMovies");
+      const savedMoviesArray = savedMovies ? JSON.parse(savedMovies) : [];
+
+      const isMovieSaved = savedMoviesArray.some(
+        (savedMovie) => savedMovie.id ===item.id
+      )
+
+      toggleFavourite(isMovieSaved);
+      console.log("if cur movie is saved")
+
+    }catch(error){
+      console.log("Error loading movie",error)
+    }
+  };
+
+    loadSavedMovies();
+
+},[item.id]);
+
+
+
 
   return (
     <ScrollView
@@ -55,8 +122,9 @@ export default function MovieScreen() {
        <TouchableOpacity className="mx-5 mt-2" onPress={()=> navigation.goBack()}>
           <ChevronLeftIcon size="35" color="white" />
         </TouchableOpacity>
-        <TouchableOpacity className="mx-5 mt-2" onPress={()=> setLike(!isLiked)}>
-          <HeartIcon size="35" color={isLiked ? 'red' : 'white'} />
+        {/* //onPress={()=> setLike(!isLiked)} */}
+        <TouchableOpacity className="mx-5 mt-2" onPress={toggleFavouriteAndSave}>
+          <HeartIcon size="35" color={isFavourite ? 'red' : 'white'} />
         </TouchableOpacity>
       </SafeAreaView>
 
@@ -103,7 +171,7 @@ export default function MovieScreen() {
 
         }
     </View>
-    <Text className="text-neutral-400 text-center text-lg ">
+    <Text className="text-neutral-400 text-center text-base ">
       {
         movie?.overview
       }

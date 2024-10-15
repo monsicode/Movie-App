@@ -27,13 +27,12 @@ const TabIcon = ({icon,name, focused }) =>{
   const color = focused ? '#C53030' : 'grey';
 
   return(
-    <View className="items-center justify-end mt-2.5">
+    <View className="items-center justify-end mt-2.5 mb-2">
       <Image 
         source={icon}
         resizeMode="contain"
-        // tintColor={color}
         style={{ tintColor: color }}
-        className="w-6 h-6"
+        className="w-6 h-6 mb-1"
       />
 
       <Text className={`${focused ? 'font-psemibold': 'font-regular'} text-xs`} style={{ color: color }}>
@@ -54,7 +53,7 @@ export default function AppNavigation() {
        screenOptions={{
         headerShown: false,
        }}
-       initialRouteName='Welcome'
+       initialRouteName='WelcomeScreen'
       >
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -70,7 +69,11 @@ export default function AppNavigation() {
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarStyle: { backgroundColor: 'black'},
+          tabBarStyle: { 
+            backgroundColor: '#1B1A1A',
+            borderTopWidth: 0,
+            height: 60,
+          },
         }}
       >
 
@@ -92,7 +95,7 @@ export default function AppNavigation() {
         <Tab.Screen name="Search" component={SearchScreen}
          options={{
              title: "Search",
-            //  headerShown: false,
+             headerShown: false,
              tabBarIcon: ({color, focused}) =>(
               <TabIcon 
                 icon={search}
@@ -107,7 +110,7 @@ export default function AppNavigation() {
         <Tab.Screen name="Liked" component={LikedScreen} 
            options={{
              title: "Liked",
-            //  headerShown: false,
+             headerShown: false,
              tabBarIcon: ({color, focused}) =>(
               <TabIcon 
                 icon={hearth}
@@ -130,6 +133,7 @@ export default function AppNavigation() {
   );
 }
 
+//  not used?
 const styles = StyleSheet.create({
   container: {
     flex: 1,
