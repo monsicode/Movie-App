@@ -1,7 +1,7 @@
 # Movie Mobile App
 
 ## Overview
-A mobile application built using React Native that allows users to browse a comprehensive list of movies. Users can view detailed information about each movie, including its genre, cover photo, and summary.
+A mobile application built using React Native that allows users to browse a comprehensive list of movies. Users can view detailed information about each movie, including its genre, cast members, cover photo, and summary.
 
 ## Functionality
 
