@@ -7,6 +7,13 @@ const trendingMoviesEndpoint = `${apiBaseUrl}/trending/movie/day?language=en-US&
 const upcomingMoviesEndpoint = `${apiBaseUrl}/movie/upcoming?language=en-US&page=1&api_key=${apiKeys}`
 const topRatedMoviesEndpoint = `${apiBaseUrl}/movie/top_rated?language=en-US&page=1&api_key=${apiKeys}`
 
+//dynamic endpoint for movieDetails
+
+const movieDetailsEndpoint = id => `${apiBaseUrl}/movie/${id}?language=en-US&page=1&api_key=${apiKeys}`
+const movieCreditsEndpoint = id => `${apiBaseUrl}/movie/${id}/credits?language=en-US&page=1&api_key=${apiKeys}`
+
+
+
 //will return the img of width 500
 export const image500 = path=>path ? `https://image.tmdb.org/t/p/w500${path}` : null
 export const image342 = path=>path ? `https://image.tmdb.org/t/p/w342${path}` : null
@@ -43,4 +50,12 @@ export const fetchUpcomingMovies = () =>{
 
 export const fetchTopRatedMovies = () =>{
     return apiCall(topRatedMoviesEndpoint);
+}
+
+export const fetchMovieDetails=id=>{
+    return apiCall(movieDetailsEndpoint(id));
+}
+
+export const fetchMovieCredits=id=>{
+    return apiCall(movieCreditsEndpoint(id));
 }

@@ -10,6 +10,7 @@ import LikedScreen from '../screens/LikedScreen';
 import SearchScreen from '../screens/SearchScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import MovieScreen from '../screens/MovieScreen';
 
 // improting the icons this way, had problem importing with constat folder
 import home from "../../assets/imgs/icons/home.png";
@@ -53,11 +54,12 @@ export default function AppNavigation() {
        screenOptions={{
         headerShown: false,
        }}
-       initialRouteName='HomeScreen'
+       initialRouteName='Welcome'
       >
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="MovieDetail" component={MovieScreen} />
 
       </Stack.Navigator>
     );
