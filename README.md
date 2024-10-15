@@ -16,6 +16,10 @@ A mobile application built using React Native that allows users to browse a comp
   - Cover photo
   - Summary
 
+### Saved Screen
+- Displays a list of movies that users have liked.
+- Users can remove movies from their saved list.
+
 ## This project highlights:
 - **React Native**: For building cross-platform mobile applications.
 - **Navigation**: Smooth navigation between screens.
