@@ -14,6 +14,7 @@ A mobile application built using React Native that allows users to browse a comp
   - Name
   - Genre
   - Cover photo
+  - Cast
   - Summary
 
 ### Saved Screen
