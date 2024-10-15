@@ -25,7 +25,6 @@ A mobile application built using React Native that allows users to browse a comp
 - **Navigation**: Smooth navigation between screens.
 - **MovieDB API**: Integration for fetching movie data.
 - **Image Carousel**: To display multiple images related to each movie.
-- **Searching**: Functionality to search for movies by title.
 - **Responsiveness**: Adapts to different screen sizes.
 - **Hero Icons**: For visually appealing interface elements.
 - **Linear Gradient**: Enhances the visual design with gradient backgrounds.
