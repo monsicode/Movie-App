@@ -39,3 +39,7 @@ To install and run the app, follow these steps:
    git clone <repository-url>
 
 - Cross-Platform Compatibility
+
+  
+## Screenshots
+![Welcome Screen](https://github.com/monsicode/Movie-App/blob/main/imgApp/welcome.jpg)
