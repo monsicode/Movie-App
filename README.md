@@ -42,4 +42,4 @@ To install and run the app, follow these steps:
 
   
 ## Screenshots
-<img src="https://github.com/username/repository-name/blob/main/assets/movie-list-screen.png" alt="Welcome Screen" width="300"/>
+<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/welcome.jpg" alt="Welcome Screen" width="300"/>
