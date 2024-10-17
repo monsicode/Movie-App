@@ -42,4 +42,7 @@ To install and run the app, follow these steps:
 
   
 ## Screenshots
-<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/welcome.jpg" alt="Welcome Screen" width="300"/>
+<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/welcome.jpg" alt="Welcome Screen" width="200"/>
+<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/home.jpeg" alt="Welcome Screen" width="200"/>
+<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/VenomLike.jpg" alt="Welcome Screen" width="200"/>
+<img src="https://github.com/monsicode/Movie-App/blob/main/imgApp/liked.jpg" alt="Welcome Screen" width="200"/>
